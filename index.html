@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bellybutton Biodiversity</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+  <style type="text/css">
+    body {
+     background-color: #f4beda;
+    }
+    .jumbotron {
+      background-image: url("assets/prettypetries.jpg") !important;
+    }
+    #header.jumbotron {
+      color: #ffffff !important;
+    }
+    h1 {
+      background-color:rgba(97, 79, 87, 0.4);
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    h2 {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      font-size: x-large;
+      margin-top: 0;
+
+    }
+    #bar {
+      border-radius: 25px !important;
+    }
+
+    #bubblebox, #culturebox, #marginbox {
+      padding: 4px;
+      background-color: white;
+      border: 1px solid #60797f;
+      border-radius: 10px !important;
+      margin-bottom: 15px;
+    }
+
+    .caption {
+      margin-top:0
+      padding: 0, 10px !important;
+    }
+
+    .well {
+      border: 1px solid #60797f;
+    }
+    
+    .center{
+      text-align: center !important;
+    }
+    
+    #footer {
+      background-color:rgba(97, 79, 87, 0.4);
+      border-radius: 5px !important;
+      padding: 20px;
+    }
+    
+    #footer a {color: #444;}
+
+   
+   </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+
+    <div class="row">
+      <div id=header class="col-md-12 jumbotron text-center">
+        <h1>Belly Button Biodiversity Dashboard</h1>
+        <p>Use the interactive charts below to explore the dataset</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div id="infobox">
+          <h2>About this Dashboard:</h2>
+            <p>Did you know you have an entire ecosystem living in your belly button? You do! 
+              Participants in this study were asked to swab their belly button and submit their *ecosystem* samples for analysis. 
+              Selecting a test subject ID from the drop-down menu below will update the charts.  
+              Each subject has a variety of bacteria in their ecosystem and it's interesting to see how much more there are when none are destroyed with a wash.
+              Have fun exploring!</p>
+              <br />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="well">
+          <h5>Test Subject ID No.:</h5>
+          <!-- <select id="selDataset"></select> -->
+          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Demographic Info</h3>
+          </div>
+          <div id="sample-metadata" class="panel-body"></div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div id="culturebox"> 
+          <div id="bar"></div>
+          <div class="caption">
+          <p>This bar chart shows the top 10 bacterial cultures for this particular subject. 
+            An "OTU" is an Operational Taxonomic Unit, and in this instance 
+            it's being used to measure an individual, species, genus, or class of belly button bacteria! 
+            Hover over each bar to see more info. </p>
+          </div>
+        </div> 
+      </div>
+      <div class="col-md-5">
+        <div id="marginbox">
+          <div id="gauge"></div>
+          <div class="caption">
+            <p>This gauge chart shows the averaage frequency that this particular subject washed their belly button each week. 
+              The more they washed, the less bacteria in their sample... the washing wiped out the belly button ecosystem! </p>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div id="bubblebox" class="row">
+      <div class="col-md-12">
+        <div id="bubble"></div>
+        <div class="caption">
+          <p class="center">This bubble chart shows all the OTUs for this subject and the size and color of the bubble indiates the volume of each particular cluster.</p>
+          </div>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-md-12">
+        <div id="footer">
+          <br />
+            <p class="center">More info about Belly Button Biodiversity can be found at: <a href="https://education.nationalgeographic.org/resource/belly-button-biodiversity">https://education.nationalgeographic.org/resource/belly-button-biodiversity</a>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!--script src="plots.js"></script-->
+  <script src="charts.js"></script>
+
+</body>
+
+</html>
